@@ -1,55 +1,45 @@
-int xPos;
-int yPos;
-int jump = 4;
-int state = 0;
-boolean left, right;
-int PJump;
-boolean Jump;
+Player plyr;
 void setup(){
   size(1200, 800);
+plyr = new Player();
 }
-
 void draw(){
  background(255);
-  fill(#FF0000);
-  rect(xPos, yPos, 30, 30);
-
- text(str(state),xPos, yPos);
-  if (left == true) {
-    xPos = xPos - 4;
-  }
-  if (right == true) {
-    xPos = xPos + 4;
-  }
+  
+ plyr.update();
+ plyr.display();
    
+  
+  
   
 }
 
 void keyPressed(){
   if (key == 'a') {
-   state = 1;
-   left = true;
+   plyr.state = 1;
+   plyr.left = true;
   }
   
   if (key == 'd') {
-   state = 2;
-   right = true;
+   plyr.state = 2;
+   plyr.right = true;
   }
   
    if (key == 'w') {
-   state = 3;
-   Jump = true;
+   plyr.state = 3;
+   plyr.Jump = true;
   }
   
  
 }
 void keyReleased(){
   if (key == 'a'){
-    state = 0;
-    left = false;
+   plyr.state = 0;
+    plyr.left = false;
   }
   if (key == 'd'){
-    state = 0;
-    right = false;
+   plyr.state = 0;
+    plyr.right = false;
   }
 }
+
