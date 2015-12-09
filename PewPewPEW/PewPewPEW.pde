@@ -8,7 +8,7 @@ boolean Jump;
 void setup(){
   size(1200, 800);
 }
-
+//now this is a story all about how my life got twist turned upside down
 void draw(){
  background(255);
   fill(#FF0000);
