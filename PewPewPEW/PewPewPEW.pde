@@ -1,20 +1,21 @@
 Player plyr;
+Platform Plat;
 color c = color(0, 255, 200);
 void setup(){
   size(1200, 800);
 plyr = new Player();
+Plat = new Platform(height/2, width/2 , 200, 0);
 }
 void draw(){
  background(#f1f1f1);
   
  plyr.update();
  plyr.display();
-  noStroke();
-   fill(c);
-  rect(height/2, width/2 , 200, 100);
-  stroke(1);
-  fill(get(plyr.xPos + 15, plyr.yPos + 32));
-  rect(0, 0, 30, 30);
+ Plat.display();
+ Plat.check();
+  
+ 
+
   
 }
 

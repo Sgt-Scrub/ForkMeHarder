@@ -1,5 +1,5 @@
 class Player {
-  int xPos;
+  int xPos = width/2;
 int yPos;
 
 int jump = 4;
@@ -26,13 +26,12 @@ boolean Jump;
     xPos = xPos + 4;
   }
  
- color g = get(xPos + 15, yPos + 32);
- println(g);
- if (color(c) == color(g)){
-yPos--;
- }else{
-   yPos++;
- }
+ yPos = yPos + 2;
+
+ 
+
+
+ 
  
  
   }
