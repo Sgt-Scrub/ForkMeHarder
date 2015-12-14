@@ -1,12 +1,13 @@
 class Player {
-  int xPos;
+  int xPos = width/2;
 int yPos;
+
 int jump = 4;
 int state = 0;
 boolean left, right;
 int PJump;
 boolean Jump;
-color c = color(0, 255, 200);
+
   
   
   
@@ -24,6 +25,15 @@ color c = color(0, 255, 200);
   if (right == true) {
     xPos = xPos + 4;
   }
+ 
+ yPos = yPos + 2;
+
+ 
+
+
+ 
+ 
+ 
   }
   
   void display(){

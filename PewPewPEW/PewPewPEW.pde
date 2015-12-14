@@ -1,16 +1,21 @@
 Player plyr;
+Platform Plat;
+color c = color(0, 255, 200);
 void setup(){
   size(1200, 800);
 plyr = new Player();
+Plat = new Platform(height/2, width/2 , 200, 0);
 }
 void draw(){
- background(255);
+ background(#f1f1f1);
   
  plyr.update();
  plyr.display();
-   
+ Plat.display();
+ Plat.check();
   
-  
+ 
+
   
 }
 
