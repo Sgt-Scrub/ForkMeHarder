@@ -4,14 +4,25 @@ class Platform{
  int Ypos;
  int Rwidth;
  int Hwidth;
+ boolean PlatCheck;
+ 
  
   
-  Platform(int x_, int _y, int _w, int _h){
+  Platform(int _x, int _y, int _w, int _h){
     
- Xpos = x_;
+ Xpos = _x;
  Ypos = _y;
  Rwidth = _w;
  Hwidth = _h;
+ 
+  }
+  
+    Platform(){
+    
+ Xpos = 0;
+ Ypos = 0;
+ Rwidth = 0;
+ Hwidth = 0;
  
   }
   
@@ -23,10 +34,17 @@ class Platform{
   
   void check(){
    
-   if (((plyr.xPos + 30) > Xpos) && (plyr.xPos < (Xpos + Rwidth)) &&((plyr.yPos + 31) >= Ypos) && (plyr.yPos < Ypos) ){
-     
-    plyr.yPos = Ypos - 31;
+   if (((plyr.xPos + 30) > Xpos) && (plyr.xPos < (Xpos + Rwidth)) &&((plyr.yPos + 30) >= Ypos) && (plyr.yPos < Ypos) ){
+    
+   if  ( plyr.yVel > 0){
+     plyr.yVel = 0;
+   }
+   
+    plyr.yPos = Ypos - 30;
+    PlatCheck = true;
 
+   }else{
+     PlatCheck = false;
    }
 
 }
