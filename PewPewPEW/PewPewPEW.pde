@@ -68,6 +68,11 @@ void keyPressed() {
     plyr.state = 3;
     plyr.Jump = true;
   }
+   if (key == 's') {
+    plyr.state = 4;
+    plyr.Duck = true;
+  }
+  
 }
 void keyReleased() {
   if (key == 'a') {
@@ -78,4 +83,10 @@ void keyReleased() {
     plyr.state = 0;
     plyr.right = false;
   }
+  
+   if (key == 's') {
+    plyr.state = 0;
+    plyr.Duck = false;
+  }
+  
 }

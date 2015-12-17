@@ -35,13 +35,13 @@ class Platform{
   
   void check(){
    
-   if (((plyr.xPos + 30) > Xpos) && (plyr.xPos < (Xpos + Rwidth)) &&((plyr.yPos + 30) >= Ypos) && (plyr.yPos < Ypos) ){
+   if (((plyr.xPos + 30) > Xpos) && (plyr.xPos < (Xpos + Rwidth)) &&((plyr.yPos + plyr.Tsize) >= Ypos) && (plyr.yPos < Ypos) ){
     
    if  ( plyr.yVel > 0){
      plyr.yVel = 0;
    }
    
-    plyr.yPos = Ypos - 30;
+    plyr.yPos = Ypos - plyr.Tsize;
     PlatCheck = true;
 
    }else{

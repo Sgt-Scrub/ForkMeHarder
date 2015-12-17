@@ -10,6 +10,9 @@ boolean left, right;
 int PJump;
 boolean Jump;
 boolean JumpCheck;
+boolean Duck;
+int Size = 60;
+int Tsize;
   
   
   
@@ -35,6 +38,12 @@ boolean JumpCheck;
   }
   if (right == true) {
     xPos = xPos + 4;
+  }
+  
+  if(Duck == true){
+   Tsize = Size/2;
+  }else{
+    Tsize = Size;
   }
   
   if (Jump == true){
@@ -69,7 +78,7 @@ boolean JumpCheck;
 
    
     fill(#FF0000);
-     rect(xPos, yPos, 30, 30);
+     rect(xPos, yPos, 30, Tsize);
 
  text(str(state),xPos, yPos);
     
