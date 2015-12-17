@@ -2,6 +2,8 @@ class Player {
   int xPos = width/2;
 int yPos;
 int yVel;
+int xpos2= 10;
+int xvel=2;
 int jump = 4;
 int state = 0;
 boolean left, right;
@@ -40,7 +42,12 @@ boolean JumpCheck;
   Jump = false;
   
   }
-  
+  if (xPos>width){
+    xPos=0;
+  }
+  if (xPos<-5){
+    xPos=width;
+  }
   
   
  yVel = yVel + 1;
@@ -59,6 +66,8 @@ boolean JumpCheck;
   }
   
   void display(){
+
+   
     fill(#FF0000);
      rect(xPos, yPos, 30, 30);
 
