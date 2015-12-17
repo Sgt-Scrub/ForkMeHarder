@@ -1,11 +1,13 @@
 Player plyr;
 Platform[] Plat = new Platform[3];
+Enemy Enmy;
 
 color c = color(0, 255, 200);
 void setup() {
 
   size(1200, 800);
   plyr = new Player();
+  Enmy = new Enemy();
   for (int i = 0; i < Plat.length; i++) {
    
     int x_ = 0;
@@ -40,13 +42,15 @@ void setup() {
 }
 void draw() {
   background(#f1f1f1);
-
+println(mouseX,mouseY);
   plyr.update();
   for (int i = 0; i < Plat.length; i++) {
     Plat[i].display();
     Plat[i].check();
   }
   plyr.display();
+  Enmy.display();
+  Enmy.move();
 }
 
 void keyPressed() {
@@ -75,4 +79,3 @@ void keyReleased() {
     plyr.right = false;
   }
 }
-
