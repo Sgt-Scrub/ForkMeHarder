@@ -69,7 +69,7 @@ boolean JumpCheck;
 
    
     fill(#FF0000);
-     rect(xPos, yPos, 30, 30);
+     rect(xPos, yPos, 30, 60);
 
  text(str(state),xPos, yPos);
     
