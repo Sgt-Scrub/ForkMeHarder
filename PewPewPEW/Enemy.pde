@@ -7,7 +7,7 @@ class Enemy{
   }
   
   void display(){
-    fill(2,16,255);
+    fill(#FF0000);
     rect(xPosE,yPosE,30,30);
   }
   void move(){
