@@ -1,11 +1,18 @@
 class Enemy{
-  int xPosE = 10;
-  int yPosE = 540;
   int xVelE = 2;
-  int pstart = 0;
-  int pend = 629;
+  int pstart;
+  int pend;
+  int xPosE;
+  int yPosE;
+  boolean triggered;
   
-  Enemy(){
+  Enemy(int ps,int pe, int h){
+ 
+    pstart = ps;
+    pend = pe;
+    yPosE = h - 60;
+    xPosE = pstart;
+ 
   }
   
   void display(){
@@ -20,15 +27,18 @@ class Enemy{
    
  if ((plyr.xPos > xPosE) && (xPosE > pstart)){
   xPosE--;
+  triggered = true;
  }
  
   if ((plyr.xPos < xPosE) && (xPosE < pend)){
   xPosE++;
+  triggered = true;
  }
  
   } else {
 
       xPosE= xPosE + xVelE;
+      triggered = false;
 
       if ( xPosE > pend) {
         xVelE = -xVelE;

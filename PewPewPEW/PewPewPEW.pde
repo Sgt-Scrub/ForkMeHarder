@@ -1,43 +1,70 @@
 Player plyr;
 Platform[] Plat = new Platform[3];
-Enemy Enmy;
 ArrayList<Bullet> myBullets = new ArrayList<Bullet>();
 int mag;
 int magTime;
+
+
+Enemy[] Enmy = new Enemy[2];
+ArrayList<Bullet> myBulletsE = new ArrayList<Bullet>();
+int magE;
+int magTimeE;
 
 color c = color(0, 255, 200);
 void setup() {
 
   size(1200, 800);
   plyr = new Player();
-  Enmy = new Enemy();
+  for (int i = 0; i < Enmy.length; i++) {
+
+    int ps_ = 0;
+    int pe_ = 0;
+    int h_ = 0;
+
+    if ( i == 0 ) {
+      ps_ = 0 ;
+      pe_ = 629 ;
+      h_= 600 ;
+    }
+    
+      if ( i == 1 ) {
+      ps_ = width/2 ;
+      pe_ = ps_ + width/2 + 50;
+      h_= height - 400 ;
+    }
+    
+    
+
+
+    Enmy[i] = new Enemy(ps_, pe_, h_);
+  }
+
   for (int i = 0; i < Plat.length; i++) {
-   
+
     int x_ = 0;
     int y_ = 0; 
     int w_ = 0;
     int h_ = 0;
-   
+
     if ( i == 0) {
       x_ = 0;
       y_ = height - 5; 
       w_ = width;
       h_ = 5;
     }
-    
-     if ( i == 1) {
+
+    if ( i == 1) {
       x_ = 0;
       y_ = height - 200; 
       w_ = width/2 + 50;
       h_ = 5;
-     }
-     
-       if ( i == 2) {
+    }
+
+    if ( i == 2) {
       x_ = width/2;
       y_ = height - 400; 
       w_ = width/2 + 50;
       h_ = 5;
-      
     }
 
     Plat[i] = new Platform(x_, y_, w_, h_);
@@ -45,18 +72,19 @@ void setup() {
 }
 void draw() {
   background(#f1f1f1);
-println(mouseX,mouseY);
+  println(mouseX, mouseY);
   plyr.update();
   for (int i = 0; i < Plat.length; i++) {
     Plat[i].display();
     Plat[i].check();
   }
   plyr.display();
-  Enmy.display();
-  Enmy.move();
-  
-  
-for (int i = 0; i < myBullets.size(); i++) {
+ for (int i = 0; i < Enmy.length; i++) { 
+  Enmy[i].display();
+  Enmy[i].move();
+ }
+
+  for (int i = 0; i < myBullets.size(); i++) {
     Bullet temp = myBullets.get(i);
     temp.update();
     temp.display();
@@ -69,7 +97,8 @@ for (int i = 0; i < myBullets.size(); i++) {
     if (magTime > 60) {
       mag = 0;
       magTime = 0;
-    } else if (magTime <= 60) {
+    } 
+    else if (magTime <= 60) {
       magTime++;
     }
   }
@@ -99,11 +128,10 @@ void keyPressed() {
     plyr.state = 3;
     plyr.Jump = true;
   }
-   if (key == 's') {
+  if (key == 's') {
     plyr.state = 4;
     plyr.Duck = true;
   }
-  
 }
 void keyReleased() {
   if (key == 'a') {
@@ -114,10 +142,10 @@ void keyReleased() {
     plyr.state = 0;
     plyr.right = false;
   }
-  
-   if (key == 's') {
+
+  if (key == 's') {
     plyr.state = 0;
     plyr.Duck = false;
   }
-  
 }
+
