@@ -13,8 +13,8 @@ int magTimeE;
 
 color c = color(0, 255, 200);
 void setup() {
-  
-  
+
+
 
   size(1200, 800);
   plyr = new Player();
@@ -29,14 +29,14 @@ void setup() {
       pe_ = 629 ;
       h_= 600 ;
     }
-    
-      if ( i == 1 ) {
+
+    if ( i == 1 ) {
       ps_ = width/2 ;
       pe_ = ps_ + width/2 + 50;
       h_= height - 400 ;
     }
-    
-    
+
+
 
 
     Enmy[i] = new Enemy(ps_, pe_, h_);
@@ -74,7 +74,7 @@ void setup() {
   }
 }
 void draw() {
-Trans = (-1 * plyr.xPos) +  width/3;
+  Trans = (-1 * plyr.xPos) +  width/3;
   translate(Trans, 0);
   background(#f1f1f1);
   println(mouseX, mouseY);
@@ -84,18 +84,31 @@ Trans = (-1 * plyr.xPos) +  width/3;
     Plat[i].check();
   }
   plyr.display();
- for (int i = 0; i < Enmy.length; i++) { 
-  Enmy[i].display();
-  Enmy[i].move();
- }
+  for (int i = 0; i < Enmy.length; i++) { 
+   
+    if (Enmy[i].HP > 0){
+   
+    Enmy[i].display();
+    Enmy[i].move();
+    }
+  }
 
   for (int i = 0; i < myBullets.size(); i++) {
     Bullet temp = myBullets.get(i);
     temp.update();
     temp.display();
 
-    if ((temp.position.x < 0) || (temp.position.x > 1200) || (temp.position.y < 0) || (temp.position.y > height)) {
+    if ((temp.position.x < 0) || (temp.position.x > plyr.xPos + (width/3 * 2)) || (temp.position.y < 0) || (temp.position.y > height)) {
       myBullets.remove(i);
+    }
+
+
+    for (int j = 0; j < Enmy.length; j++) { 
+      if ((temp.position.x > Enmy[j].xPosE) && (temp.position.x < (Enmy[j].xPosE) + 30) && (temp.position.y > Enmy[j].yPosE) && (temp.position.y < (Enmy[j].yPosE) + 60)) {
+        myBullets.remove(i);
+     
+     Enmy[j].HP--;
+    }
     }
   }
   if (mag >= 6) {
@@ -137,9 +150,9 @@ void keyPressed() {
     plyr.state = 4;
     plyr.Duck = true;
   }
-  
+
   if (key == 'r') {
-   mag = 6;
+    mag = 6;
   }
 }
 void keyReleased() {
