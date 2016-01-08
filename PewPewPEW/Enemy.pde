@@ -5,6 +5,7 @@ class Enemy{
   int xPosE;
   int yPosE;
   boolean triggered;
+  int HP = 5;
   
   Enemy(int ps,int pe, int h){
  

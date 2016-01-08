@@ -3,7 +3,7 @@ class Bullet {
 
   Bullet(int mx, int my) {
     position = new PVector(plyr.xPos+15, plyr.yPos+15);
-    direction = new PVector(mx-(plyr.xPos+15), my-(plyr.yPos+15));
+    direction = new PVector((mx + (plyr.xPos - width/3))-(plyr.xPos+15), my-(plyr.yPos+15));
     direction.div(10); //slow down a little
   }
 

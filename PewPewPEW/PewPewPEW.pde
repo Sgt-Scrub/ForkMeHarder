@@ -3,6 +3,7 @@ Platform[] Plat = new Platform[3];
 ArrayList<Bullet> myBullets = new ArrayList<Bullet>();
 int mag;
 int magTime;
+int Trans = 0;
 
 
 Enemy[] Enmy = new Enemy[2];
@@ -12,6 +13,8 @@ int magTimeE;
 
 color c = color(0, 255, 200);
 void setup() {
+  
+  
 
   size(1200, 800);
   plyr = new Player();
@@ -71,6 +74,8 @@ void setup() {
   }
 }
 void draw() {
+Trans = (-1 * plyr.xPos) +  width/3;
+  translate(Trans, 0);
   background(#f1f1f1);
   println(mouseX, mouseY);
   plyr.update();
@@ -89,7 +94,7 @@ void draw() {
     temp.update();
     temp.display();
 
-    if ((temp.position.x < 0) || (temp.position.x > width) || (temp.position.y < 0) || (temp.position.y > height)) {
+    if ((temp.position.x < 0) || (temp.position.x > 1200) || (temp.position.y < 0) || (temp.position.y > height)) {
       myBullets.remove(i);
     }
   }
@@ -131,6 +136,10 @@ void keyPressed() {
   if (key == 's') {
     plyr.state = 4;
     plyr.Duck = true;
+  }
+  
+  if (key == 'r') {
+   mag = 6;
   }
 }
 void keyReleased() {

@@ -54,12 +54,7 @@ int Speed;
   Jump = false;
   
   }
-  if (xPos>width){
-    xPos=0;
-  }
-  if (xPos<-5){
-    xPos=width;
-  }
+
   
   
  yVel = yVel + 1;
