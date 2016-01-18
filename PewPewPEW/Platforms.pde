@@ -27,8 +27,9 @@ class Platform{
   }
   
   void display(){
-  // noStroke();
-   fill(#FF0000);
+  noStroke();
+   //fill(#FF0000);
+    noFill();
     rect(Xpos, Ypos, Rwidth, Hwidth); 
     
   }
